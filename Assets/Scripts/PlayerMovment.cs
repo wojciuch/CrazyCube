@@ -16,6 +16,11 @@ public class PlayerMovment : MonoBehaviour {
     {
         rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
+        if (Input.GetKey("q"))
+        {
+            Application.Quit();
+        }
+
         if (Input.GetKey("d"))
         {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange) ;
@@ -27,7 +32,7 @@ public class PlayerMovment : MonoBehaviour {
         }
        // if (rb.position.y < -1f || rb.position.x < -8.2f || rb.position.x > 8.2f)
 
-            if (rb.position.y < -1f)
+       if (rb.position.y < -1f)
         {
             FindObjectOfType<GameManager>().EndGame();
             enabled = false;
