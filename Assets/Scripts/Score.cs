@@ -8,6 +8,8 @@ public class Score : MonoBehaviour {
     public float score;
     public Text scoreText;
     public Text levelText;
+    public Text leftDistanseText;
+
     public float scoreMultipler;
 
     private GameManager gm;
@@ -16,6 +18,7 @@ public class Score : MonoBehaviour {
     {
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         levelText.text = "Level  : "+ SceneManager.GetActiveScene().buildIndex +" / 3";
+        
     }
 
     private void Update()
@@ -23,7 +26,6 @@ public class Score : MonoBehaviour {
 
         if (!gm.levelIsComplete)
         {
-            score = score + Time.deltaTime * scoreMultipler;
             scoreText.text = score.ToString("0") ;
         }
         else
