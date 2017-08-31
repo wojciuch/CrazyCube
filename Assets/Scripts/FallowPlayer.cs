@@ -4,13 +4,18 @@ public class FallowPlayer : MonoBehaviour {
 
     public Transform player;
     public Vector3 offset;
+    private string position;
     
     private void Update()
     {
-      //  Debug.Log(transform.position.x + "  " + transform.position.y + "  " + transform.position.z);
-        if(!float.IsNaN(transform.position.x) && !float.IsNaN(transform.position.y) && !float.IsNaN(transform.position.z))
+        position = player.position.x.ToString();
+        if (position == ("NaN"))
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
+        else
         {
             transform.position = player.position + offset;
         }
-     }
+    }
 }
