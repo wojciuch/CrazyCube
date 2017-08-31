@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 
         if (PlayerPrefs.HasKey("Score"))
         {
-            if (Application.loadedLevel == 1)
+           if (SceneManager.GetActiveScene().buildIndex == 1)
             {
                 PlayerPrefs.DeleteKey("Score");
                 score.score = 0f;
