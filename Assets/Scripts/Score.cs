@@ -27,6 +27,7 @@ public class Score : MonoBehaviour {
         if (!gm.levelIsComplete)
         {
             scoreText.text = score.ToString("0") ;
+            score = score + Time.deltaTime * scoreMultipler;
         }
         else
         {
